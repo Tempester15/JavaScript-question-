@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Image Hover Swap</title>
+  <style>
+    img {
+      width: 300px;
+      height: 200px;
+      margin: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Hover Over the Images</h1>
+
+  <img id="img1" src="https://via.placeholder.com/300x200?text=Original+Image+1" 
+       alt="Image 1"
+       onmouseover="swapImage(this, 'https://via.placeholder.com/300x200?text=Hovered+Image+1')" 
+       onmouseout="swapImage(this, 'https://via.placeholder.com/300x200?text=Original+Image+1')">
+
+  <img id="img2" src="https://via.placeholder.com/300x200?text=Original+Image+2" 
+       alt="Image 2"
+       onmouseover="swapImage(this, 'https://via.placeholder.com/300x200?text=Hovered+Image+2')" 
+       onmouseout="swapImage(this, 'https://via.placeholder.com/300x200?text=Original+Image+2')">
+
+  <script>
+    function swapImage(imgElement, newSrc) {
+      imgElement.src = newSrc;
+    }
+  </script>
+</body>
+</html>

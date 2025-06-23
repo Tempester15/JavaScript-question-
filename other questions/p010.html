@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Marble Animation</title>
+    <style>
+        #container {
+            width: 800px;
+            height: 100px;
+            border: 2px solid #333;
+            position: relative;
+            margin: 50px auto;
+            overflow: hidden;
+        }
+
+        .marble {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 15px 15px, #ff0000, #800000);
+            position: absolute;
+            top: 25px;
+            left: 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align: center;">Hover to Pause, Move Mouse Away to Resume</h1>
+    <div id="container">
+        <div class="marble" id="marble"></div>
+    </div>
+
+    <script>
+        let marble = document.getElementById("marble");
+        let position = 0;
+        let direction = 1;
+        let animation;
+
+        function moveMarble() {
+            position += direction * 5;
+            if (position > 750 || position < 0) {
+                direction *= -1; // Reverse direction
+            }
+            marble.style.left = position + "px";
+
+            // Repeat using setTimeout
+            animation = setTimeout(moveMarble, 30);
+        }
+
+        // Start the animation
+        moveMarble();
+
+        // Stop animation on mouse over
+        marble.addEventListener("mouseover", function () {
+            clearTimeout(animation);
+        });
+
+        // Resume animation on mouse out
+        marble.addEventListener("mouseout", function () {
+            moveMarble();
+        });
+    </script>
+
+</body>
+</html>

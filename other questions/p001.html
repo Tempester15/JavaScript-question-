@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Two Numbers</title>
+    <script>
+        window.onload = function() {
+            let input1 = prompt("Enter the first integer:");
+            let input2 = prompt("Enter the second integer:");
+
+            let num1 = parseInt(input1);
+            let num2 = parseInt(input2);
+
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Please enter valid integers.");
+            } else {
+ 
+                let sum = num1 + num2;
+
+                alert("The sum is: " + sum);
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>Adding Two Numbers with JavaScript</h1>
+    <p>Check the alert boxes after the page loads.</p>
+</body>
+</html>

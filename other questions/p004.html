@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Time Converter and Timer</title>
+    <script>
+        // Function to convert local date/time to UTC and display it
+        function convertToUTC() {
+            const now = new Date();
+            const utcString = now.toUTCString();
+            document.getElementById("utcOutput").innerText = "UTC Time: " + utcString;
+        }
+
+        // Timer function to display current date/time after a delay (e.g., 3 seconds)
+        function startTimer() {
+            const delay = 3000; // 3000 ms = 3 seconds
+            document.getElementById("timerOutput").innerText = "Waiting...";
+            setTimeout(() => {
+                const currentTime = new Date().toLocaleString();
+                document.getElementById("timerOutput").innerText = "Current Local Time: " + currentTime;
+            }, delay);
+        }
+    </script>
+</head>
+<body>
+    <h1>Time Conversion and Timer Demo</h1>
+
+    <!-- Button to convert to UTC -->
+    <button onclick="convertToUTC()">Convert Local Time to UTC</button>
+    <p id="utcOutput"></p>
+
+    <!-- Button to start timer -->
+    <button onclick="startTimer()">Start Timer (3 seconds delay)</button>
+    <p id="timerOutput"></p>
+</body>
+</html>

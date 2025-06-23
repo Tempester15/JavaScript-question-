@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Visit Tracker with Cookies</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+    img {
+      width: 300px;
+      height: auto;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Welcome to Our Page!</h1>
+  <p id="visitInfo"></p>
+  <img src="https://via.placeholder.com/300x200?text=Welcome+Image" alt="Welcome Image" />
+
+  <script>
+    // Helper to get a cookie value by name
+    function getCookie(name) {
+      const cookies = document.cookie.split('; ');
+      for (let cookie of cookies) {
+        const [key, value] = cookie.split('=');
+        if (key === name) return decodeURIComponent(value);
+      }
+      return null;
+    }
+
+    // Helper to set a cookie (expires in 1 year)
+    function setCookie(name, value) {
+      const expires = new Date();
+      expires.setFullYear(expires.getFullYear() + 1);
+      document.cookie = `${name}=${encodeURIComponent(value)};expires=${expires.toUTCString()};path=/`;
+    }
+
+    // Main logic
+    const visitCount = parseInt(getCookie('visitCount')) || 0;
+    const lastVisit = getCookie('lastVisit');
+    const now = new Date();
+
+    if (visitCount === 0) {
+      // First visit
+      document.getElementById('visitInfo').innerHTML =
+        `You have never visited before. Welcome!`;
+    } else {
+      // Returning visitor
+      document.getElementById('visitInfo').innerHTML =
+        `You have visited ${visitCount + 1} times.<br>` +
+        `Your last visit was on: ${lastVisit}`;
+    }
+
+    // Update cookies with current visit info
+    setCookie('visitCount', visitCount + 1);
+    setCookie('lastVisit', now.toLocaleString());
+  </script>
+
+</body>
+</html>

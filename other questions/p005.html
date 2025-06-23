@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Swap on Click</title>
+    <script>
+        function changeImage() {
+            const img = document.getElementById("myImage");
+            img.src = "https://via.placeholder.com/300x200/ff7f7f/ffffff?text=New+Image";
+        }
+    </script>
+</head>
+<body>
+    <h1>Click the Image to Change It</h1>
+
+    <img id="myImage" src="https://via.placeholder.com/300x200/007bff/ffffff?text=Original+Image" 
+         alt="Click to change" onclick="changeImage()" style="cursor: pointer;">
+
+</body>
+</html>

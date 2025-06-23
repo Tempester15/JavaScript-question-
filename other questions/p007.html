@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Paragraph Insertion and Styling</title>
+    <style>
+        .default-style {
+            color: black;
+            font-weight: normal;
+        }
+        .highlight-style {
+            color: white;
+            background-color: darkblue;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+              const newPara = document.createElement("p");
+            newPara.textContent = "This is a dynamically inserted paragraph.";
+            newPara.className = "default-style";
+            newPara.id = "dynamicPara";
+
+
+            const firstPara = document.getElementById("para1");
+            const secondPara = document.getElementById("para2");
+            firstPara.parentNode.insertBefore(newPara, secondPara);
+
+            newPara.addEventListener("mouseover", function () {
+                newPara.className = "highlight-style";
+            });
+
+            newPara.addEventListener("mouseout", function () {
+                newPara.className = "default-style";
+            });
+        };
+    </script>
+</head>
+<body>
+    <h1>Paragraph Styling with Events</h1>
+
+    <p id="para1">This is the first paragraph of text.</p>
+
+    <p id="para2">This is the second paragraph of text.</p>
+</body>
+</html>
