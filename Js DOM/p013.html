@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Window Size Tracker</title>
+</head>
+<body>
+  <h2>Resize the Window</h2>
+  <p id="sizeDisplay"></p>
+
+  <script>
+
+    function updateWindowSize() {
+
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      document.getElementById("sizeDisplay").textContent = `Width: ${w}, Height: ${h}`;
+    }
+
+    // Initial call
+    updateWindowSize();
+
+ 
+    window.addEventListener("resize", updateWindowSize);
+  </script>
+</body>
+</html>

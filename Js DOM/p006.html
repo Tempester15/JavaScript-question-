@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Change the content of a cell</title>
+</head>
+<body>
+  <table id="myTable" border="1">
+    <tr><td>Row1 cell1</td><td>Row1 cell2</td></tr>
+    <tr><td>Row2 cell1</td><td>Row2 cell2</td></tr>
+    <tr><td>Row3 cell1</td><td>Row3 cell2</td></tr>
+  </table>
+  <br>
+  <form onsubmit="changeContent(); return false;">
+    Row: <input type="number" id="row" value="0" min="0">
+
+    Column: <input type="number" id="col" value="0" min="0">
+    New Content: <input type="text" id="newValue" value="Updated Cell">
+    <input type="submit" value="Change content">
+  </form>
+
+  <script>
+    function changeContent() {
+      const row = parseInt(document.getElementById('row').value);
+
+      const col = parseInt(document.getElementById('col').value);
+      
+      const val = document.getElementById('newValue').value;
+
+      const table = document.getElementById('myTable');
+      if (table.rows[row] && table.rows[row].cells[col]) {
+        table.rows[row].cells[col].innerHTML = val;
+      } else {
+        alert('Invalid row or column index');
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<canvas id="canvas3" width="300" height="300"></canvas>
+<script>
+  const ctx3 = document.getElementById('canvas3').getContext('2d');
+
+  for (let i = 0; i < 7; i++) {
+    const gray = Math.floor(255 - i * (255 / 6)); // Grayscale gradient
+    ctx3.beginPath();
+    ctx3.arc(40 + i * 30, 40 + i * 30, 20, 0, 2 * Math.PI);
+    ctx3.fillStyle = `rgb(${gray}, ${gray}, ${gray})`;
+    ctx3.fill();
+  }
+</script>
