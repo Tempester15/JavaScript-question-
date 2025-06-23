@@ -1,0 +1,46 @@
+<!-- 13.Write a JavaScript program to add items in an blank array and display the items. 
+Sample Screen :
+Solution -  -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="input">
+        <input type="text" , id='inputElement'>
+    </div>
+
+    <div class="btn-container">
+        <button class="add" onclick='add(array)'>
+            add
+        </button>
+        <button class="display" onclick='display(array)'>
+            display
+        </button>
+    </div>
+
+    <div class="display-container">
+
+    </div>
+</body>
+<script>
+    let array = [];
+    function add(arr) {
+        const elementAdd = document.getElementById("inputElement").value;
+        arr = arr.push(elementAdd);
+        return arr;
+    }
+
+    function display(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            let div = document.getElementsByClassName('display-container')[0];
+            let element = document.createElement('p');
+            element.textContent = `Element ${i} = ${arr[i]}`
+            div.appendChild(element);
+        }
+    }
